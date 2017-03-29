@@ -23,15 +23,17 @@
     <h2>Products</h2>
     <form>
       <button type="submit">Filter by Category:</button>
-      <select></select>
+      <select name="category">
+          {html_options options=$categories selected=$category}
+      </select>
     </form>
   </div>
 
   <table class="table table-hover table-condensed">
     <tr>
-      <th><a href="">name</a></th>
+      <th><a href="setProductOrder.php?field=name">name</a></th>
       <th>category</th>
-      <th class="price"><a href="">price</a></th>
+      <th class="price"><a href="setProductOrder.php?field=price">price</a></th>
     </tr>
     {foreach $products as $product}
       <tr>

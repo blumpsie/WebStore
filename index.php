@@ -10,7 +10,9 @@ foreach($categoryRecords as $category) {
 
 //print_r($categories);
 
-$products = R::findAll('product');
+// the default ordering for products is by name
+$products = R::findAll('product', "order by name");
+
 
 $data = [
   'products' => $products,
