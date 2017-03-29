@@ -1,0 +1,60 @@
+header > div:first-child {
+  /* gradient CSS */
+  background-image: -moz-linear-gradient(top,#e7e85b,#f8f4fa);
+  background-image: -webkit-linear-gradient(top,#e7e85b,#f8f4fa);
+  background-image: -ms-linear-gradient(top,#e7e85b,#f8f4fa);
+  background-image: -o-linear-gradient(top,#e7e85b,#f8f4fa);
+  filter: progid:DXImageTransform.Microsoft.gradient(
+    startColorstr=#e7e85b,endColorstr=#f8f4fa);
+  background-repeat: no-repeat;
+  /* ----------------------------- */
+
+  position: relative;
+  border-bottom: solid 1px #000;
+  padding-right: 25px;
+}
+
+header > div:first-child span.login {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+section > h2:first-child {
+  margin-top: 0;
+}
+
+.navbar-brand {
+  font-size: inherit;
+}
+
+.navbar-header > button {
+  margin-top: 2px;
+  background: #fff;
+  padding: 5px;
+}
+
+#toggleMenu a {
+  padding: 10px 15px;
+  line-height: 10px;
+}
+
+nav a:hover {
+  color: #c00 ! important;
+}
+
+#message {
+  color: red;
+}
+
+.action {
+  display: inline-block;
+  margin: 20px 0 10px 0;
+  border: solid 2px red;
+  padding: 15px;
+}
+
+.action form {
+  display: inline-block;
+  margin: 0 5px;
+}
