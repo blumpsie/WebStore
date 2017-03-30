@@ -13,6 +13,11 @@ foreach($categoryRecords as $category) {
 // the default ordering for products is by name
 $products = R::findAll('product', "order by name");
 
+// makes the chosen order stay when the user clicks home
+if (isset($session->product_order))
+{
+    $products = R::findAll('product', "order by $session->product_order");
+}
 
 $data = [
   'products' => $products,

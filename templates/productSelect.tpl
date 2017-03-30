@@ -33,7 +33,9 @@
     <form>
       <b>Selected quantity</b>
       <br />
-      <select></select>
+      <select>
+          {html_options options=$quantity}
+      </select>
       <button type="submit">Change Quantity</button>
     </form>
   </div>

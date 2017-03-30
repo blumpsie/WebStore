@@ -11,8 +11,21 @@ if ($product->id == 0) {
   die("no product selected");
 }
 
+// For selecting the quantity of an item to purchase
+$quantity = [ "none" => "none",
+                1 => 1,
+                2 => 2,
+                3 => 3,
+                4 => 4,
+                5 => 5,
+                6 => 6,
+                7 => 7,
+                8 => 8,
+                9 => 9,
+                10 => 10,];
 $data = [
   'product' => $product,
+  'quantity' => $quantity,
 ];
 $smarty->assign($data);
 $smarty->display("productSelect.tpl");

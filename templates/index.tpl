@@ -21,7 +21,7 @@
 
   <div class='top'>
     <h2>Products</h2>
-    <form>
+    <form action="filterCategory.php">
       <button type="submit">Filter by Category:</button>
       <select name="category">
           {html_options options=$categories selected=$category}

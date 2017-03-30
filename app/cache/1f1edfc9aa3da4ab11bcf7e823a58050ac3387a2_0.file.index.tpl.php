@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-03-29 18:13:08
+/* Smarty version 3.1.30, created on 2017-03-30 10:10:50
   from "C:\Users\Blumpsie\Documents\User Interfaces - CSC 417\WebStore\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58dc3174b158a8_15738712',
+  'unifunc' => 'content_58dd11ea7a3208_85675965',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1f1edfc9aa3da4ab11bcf7e823a58050ac3387a2' => 
     array (
       0 => 'C:\\Users\\Blumpsie\\Documents\\User Interfaces - CSC 417\\WebStore\\templates\\index.tpl',
-      1 => 1490825583,
+      1 => 1490883047,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:layout.tpl' => 1,
   ),
 ),false)) {
-function content_58dc3174b158a8_15738712 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58dd11ea7a3208_85675965 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_html_options')) require_once 'C:\\Users\\Blumpsie\\Documents\\User Interfaces - CSC 417\\WebStore\\include\\libs\\plugins\\function.html_options.php';
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
@@ -29,19 +29,19 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_94743059158dc3174a6d837_59694613', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_197668285658dd11ea707360_49699638', "localstyle");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_120209444158dc3174b11c04_54143826', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_188936504058dd11ea7a0220_22045874', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:layout.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block "localstyle"} */
-class Block_94743059158dc3174a6d837_59694613 extends Smarty_Internal_Block
+class Block_197668285658dd11ea707360_49699638 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -65,7 +65,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_120209444158dc3174b11c04_54143826 extends Smarty_Internal_Block
+class Block_188936504058dd11ea7a0220_22045874 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -73,7 +73,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
   <div class='top'>
     <h2>Products</h2>
-    <form>
+    <form action="filterCategory.php">
       <button type="submit">Filter by Category:</button>
       <select name="category">
           <?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['categories']->value,'selected'=>$_smarty_tpl->tpl_vars['category']->value),$_smarty_tpl);?>
