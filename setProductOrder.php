@@ -18,7 +18,7 @@ $order = $session->product_order;
 $products = R::findAll('product', "order by $order");
 
 // get all the categories
-$categoryRecords = R::findAll('category', 'order by name');
+$categoryRecords = R::findAll('category', "order by name");
 
 // put all the categories into an array
 // but first!!! insert the ALL category into the array
