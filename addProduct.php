@@ -39,8 +39,8 @@ $data = [
     'name' => null,
     'price' => null,
     'description' => null,
-    'category_id' => null,
-    'photo_id' => null,
+    'category' => null,
+    'photo' => null,
     
     'categories' => $categories,
     'photos' => $photos,

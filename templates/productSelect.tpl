@@ -30,14 +30,30 @@
   </div>
 
   <div class="action">
-    <form>
-      <b>Selected quantity</b>
-      <br />
-      <select>
-          {html_options options=$quantity}
-      </select>
-      <button type="submit">Change Quantity</button>
-    </form>
+    {if not $session->login or not $session->login->is_admin}
+        <form>
+          <b>Selected quantity</b>
+          <br />
+          <select>
+              {html_options options=$quantity}
+          </select>
+          <button type="submit">Change Quantity</button>
+        </form>
+    {else}
+        <form action="modifyProduct.php" method="get">
+            <input type='hidden' name='product_id' value="{$product->id}" />
+            <button type="submit">Modify</button>
+        </form>
+        
+        <form action="removeProduct.php" method="get">
+            <input type='hidden' name='product_id' value="{$product->id}" />
+            <button type="submit">
+                {{session_get_flash var='button_title'}|default:'Remove'}
+            </button>
+            <input type='hidden' name='confirm'
+                   value='{session_get_flash var='confirm'}' />
+        </form>
+    {/if}
   </div>
 
   <h4 id='message'>
