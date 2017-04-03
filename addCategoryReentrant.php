@@ -48,7 +48,7 @@ try
         throw new Exception("Name of the category must be non-empty.");
     }
     
-    if(!preg_match("/[A-Z]|[a-z]\w+/", $trim_name))
+    if(preg_match("/\d/", $trim_name))
     {
         throw new Exception("Name of the category must only be letters.");
     }
@@ -74,6 +74,8 @@ try
 $data = [
     'name' => $name,
     'categories' => $categories,
+    
+    'message' => $message,
 ];
 $smarty->assign($data);
 $smarty->display("addCategory.tpl");

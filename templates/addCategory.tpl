@@ -52,4 +52,5 @@ Form for adding a category
             </tr>
         </table>
     </form>
+                           <h4 id="message">{$message|default}</h4>
 {/block}
