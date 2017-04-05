@@ -5,7 +5,7 @@ require_once "include/db.php";
  * Author: Mark Erickson
  */
 
-if (isset($session->login))
+if (!isset($session->login))
 {
     header("location: login.php");
     exit();
@@ -27,7 +27,7 @@ if (!is_null($cancel))
 $product = R::load('product', $product_id);
 
 $name = filter_input(INPUT_POST, 'name');
-$category = filter_input(INPUT_POST, 'cstegory');
+$category = filter_input(INPUT_POST, 'category');
 $price = filter_input(INPUT_POST, 'price');
 $description = filter_input(INPUT_POST, 'description');
 $photo = filter_input(INPUT_POST, 'photo');
@@ -61,7 +61,7 @@ try
     
     $productWithName = R::findOne('product', "name=?", [$trim_name]);
     
-    if (!is_null($productWithName) && $productWithTitle->id != $book->id)
+    if (!is_null($productWithName) && $productWithName->id != $product->id)
     {
         throw new Exception("Product with that name already exists");
     }
@@ -72,12 +72,6 @@ try
     if (!preg_match("/(?:\d*\.)?\d+/", $trim_price))
     {
         throw new Exception("The price must be a non-negative number");
-    }
-    
-    // Test for category
-    if (is_null($category))
-    {
-        throw new Exception("Must select a category for the product");
     }
     
     $product->name = $trim_name;

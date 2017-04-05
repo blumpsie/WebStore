@@ -6,17 +6,22 @@ require_once "include/db.php";
 
 //echo $session;
 
+// Get the data
+$product_id = filter_input(INPUT_GET, 'product_id');
+$quantity = filter_input(INPUT_GET, 'quantity');
+$product = R::load('product', $product_id);
+
 if (!isset($session->cart)) {  // or, is_null($session->cart)
   $session->cart = [];
 }
 
 // process $session->cart, storing information into $cart_data
 
-/* suppose we had:
+
 $session->cart = [
     20 => 3,
 ];
-*/
+
 
 //we might generate this cart info to send to the view script
 

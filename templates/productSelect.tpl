@@ -31,7 +31,7 @@
 
   <div class="action">
     {if not $session->login or not $session->login->is_admin}
-        <form>
+        <form action="cart.php" method="get">
           <b>Selected quantity</b>
           <br />
           <select>
@@ -41,7 +41,7 @@
         </form>
     {else}
         <form action="modifyProduct.php" method="get">
-            <input type='hidden' name='product_id' value="{$product->id}" />
+            <input type="hidden" name="product_id" value="{$product->id}" />
             <button type="submit">Modify</button>
         </form>
         

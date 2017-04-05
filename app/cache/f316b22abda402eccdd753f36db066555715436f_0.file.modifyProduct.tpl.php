@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-03 14:21:21
+/* Smarty version 3.1.30, created on 2017-04-03 17:47:38
   from "C:\Users\Blumpsie\Documents\User Interfaces - CSC 417\WebStore\templates\modifyProduct.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58e292a1821081_34559748',
+  'unifunc' => 'content_58e2c2fae5aff8_94082500',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f316b22abda402eccdd753f36db066555715436f' => 
     array (
       0 => 'C:\\Users\\Blumpsie\\Documents\\User Interfaces - CSC 417\\WebStore\\templates\\modifyProduct.tpl',
-      1 => 1491243677,
+      1 => 1491255979,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:layout.tpl' => 1,
   ),
 ),false)) {
-function content_58e292a1821081_34559748 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58e2c2fae5aff8_94082500 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_html_options')) require_once 'C:\\Users\\Blumpsie\\Documents\\User Interfaces - CSC 417\\WebStore\\include\\libs\\plugins\\function.html_options.php';
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
@@ -31,17 +31,17 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_122591161558e292a17973a9_20491890', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_29393112258e2c2fadcfdc8_77537402', "localstyle");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_172160069358e292a181e9d0_04295828', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_23202987158e2c2fae57764_18559484', "content");
 $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:layout.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block "localstyle"} */
-class Block_122591161558e292a17973a9_20491890 extends Smarty_Internal_Block
+class Block_29393112258e2c2fadcfdc8_77537402 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -59,7 +59,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_172160069358e292a181e9d0_04295828 extends Smarty_Internal_Block
+class Block_23202987158e2c2fae57764_18559484 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -83,7 +83,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             <tr>
                 <td>Category:</td>
                 <td>
-                    <?php echo $_smarty_tpl->tpl_vars['product_id']->value;?>
+                    <?php echo $_smarty_tpl->tpl_vars['category']->value;?>
 
                 </td>
             </tr>

@@ -15,22 +15,9 @@ if (!$session->login->is_admin)
     die("prohibited");
 }
 
-$product_id = filter_input(INPUT_POST, 'product_id');
-$cancel =filter_input(INPUT_POST, 'cancel');
-
-if (!is_null($cancel))
-{
-    header("location: productSelect.php?product_id=$product_id");
-    exit();
-}
+$product_id = filter_input(INPUT_GET, 'product_id');
 
 $product = R::load('product', $product_id);
-
-$name = filter_input(INPUT_POST, 'name');
-$category = filter_input(INPUT_POST, 'cstegory');
-$price = filter_input(INPUT_POST, 'price');
-$description = filter_input(INPUT_POST, 'description');
-$photo = filter_input(INPUT_POST, 'photo');
 
 // Get the categories and place them in an array
 $categoryRecords = R::findAll('category', "order by name");
@@ -52,8 +39,9 @@ $data = [
     'name' => $product->name,
     'price' => $product->price,
     'description' => $product->description,
-    'category' => $product->category,
-    'photo' => $product->photo,
+    'category' => $product->category->name,
+    'photo' => $product->photo_id,
+    'product_id' => $product_id,
     
     'categories' => $categories,
     'photos' => $photos,
