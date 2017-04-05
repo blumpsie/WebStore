@@ -26,10 +26,16 @@
     <table class="table table-hover table-condensed">
         <tr>
             <th>Name</th>
-            <th>Category</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Per-Product Subtotal</th>
+        </tr>
+        <tr>
+            {foreach $cart_info as $key => $value}
+                <td><a href="productSelect.php?product_id={$key}">{$value['name']}</a></td> 
+                <td>${$value['price']}</td>
+                <td>{$value['quantity']}</td>
+            {/foreach}
         </tr>
         
     </table>

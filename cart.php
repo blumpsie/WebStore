@@ -19,7 +19,7 @@ if (!isset($session->cart)) {  // or, is_null($session->cart)
 
 
 $session->cart = [
-    20 => 3,
+    $product_id => $quantity,
 ];
 
 

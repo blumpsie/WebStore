@@ -50,9 +50,9 @@ Author: Mark Erickson
                 </td>
                 <td>{$selection->product->id|escape:'html'}</td>
                 <td>{$selection->product->category->name|escape:'html'}</td>
-                <td>${$selection->product->price|escape:'html'}</td>
+                <td>${number_format($selection->product->price|escape:'html', 2, '.', '')}</td>
                 <td>{$selection->quantity}</td>
-                <td>${$subtotals[$selection->id]|escape:'html'}</td>
+                <td>${number_format($subtotals[$selection->id]|escape:'html', 2, '.', '')}</td>
             </tr>
         {/foreach}
         <tr>
@@ -61,7 +61,7 @@ Author: Mark Erickson
             <td></td>
             <td></td>
             <td></td>
-            <td>${$total}</td>
+            <td>${number_format($total, 2, '.', '')}</td>
         </tr>
     </table>
     
