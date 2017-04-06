@@ -17,26 +17,32 @@ if (!isset($session->cart)) {  // or, is_null($session->cart)
 
 // process $session->cart, storing information into $cart_data
 
-
 $session->cart = [
     $product_id => $quantity,
 ];
 
-
 //we might generate this cart info to send to the view script
+foreach ($session->cart as $key => $value)
+{
+    $cart_info = [
+        $key => [ 
+            'name' => $product->name, 
+            'price' => $product->price, 
+            'quantity' => $quantity,
+            'subtotal' => $product->price * $quantity,
+            ],
+    ];
+}
 
-$cart_info = [
-    20 => [ 
-        'name' => 'SanDisk microSDHCTM 16GB Memory Card', 
-        'price' => 44.99, 
-        'quantity' => 3
-        ],
-];
-$total_price = 44.99 * 3;
-
+// Get the total
+$total = 0;
+foreach ($cart_info as $key => $value)
+{
+    $total += $value['subtotal'];
+}
 $data = [
     'cart_info' => $cart_info,
-    'total_price' => $total_price,
+    'total' => $total,
 ];
 $smarty->assign($data);
 $smarty->display("cart.tpl");

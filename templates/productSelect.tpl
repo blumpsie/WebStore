@@ -15,6 +15,10 @@
 
 {block name="content"}
   <h2>{$product->name|escape:'html'}</h2>
+  {foreach $session->cart as $key => $value}
+        <br />
+        {$key}  => {$value}
+    {/foreach}
 
   <p>
     Product id: {$product->id}
@@ -32,10 +36,11 @@
   <div class="action">
     {if not $session->login or not $session->login->is_admin}
         <form action="cart.php" method="get">
+          <input type='hidden' name='product_id' value="{$product->id}" />
           <b>Selected quantity</b>
           <br />
-          <select>
-              {html_options options=$quantity}
+          <select name="quantity">
+              {html_options options=$quantities selected=$quantity}
           </select>
           <button type="submit">Change Quantity</button>
         </form>
