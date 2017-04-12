@@ -30,7 +30,7 @@ Form for adding a category
             <tr>
                 <td>
                     {foreach $categories as $category}
-                        {$category}
+                        -- <strong>{$category}</strong>
                         <br />
                     {/foreach}
                 </td>

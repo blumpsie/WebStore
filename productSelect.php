@@ -4,6 +4,7 @@ require_once "include/db.php";
 
 $product_id = filter_input(INPUT_GET, 'product_id');
 $product = R::load('product', $product_id);
+$quantity = 0;
 
 // must enter this page with a valid $product_id
 if ($product->id == 0) {
@@ -11,7 +12,7 @@ if ($product->id == 0) {
 }
 
 // For selecting the quantity of an item to purchase
-$quantities = [ "none" => "none",
+$quantities = [ 0 => "-- NONE --",
                 1 => 1,
                 2 => 2,
                 3 => 3,

@@ -18,7 +18,7 @@ $theCart = $session->cart;
 // Store the order in the database
 $order = R::dispense('order');
 $order->user_id = $user->id;
-$order->created_at = date("Y-m-d", time());
+$order->created_at = date("Y-m-d G:i:s", time());
 $id = R::store($order);
 
 // Store the selections in the database

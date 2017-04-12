@@ -8,7 +8,6 @@ foreach($categoryRecords as $category) {
   $categories[$category->id] = $category->name;
 }
 // the default ordering for products is by name
-//$products = R::findAll('product', "order by name");
 //print_r($categories);
 
 if (!isset($session->product_order))

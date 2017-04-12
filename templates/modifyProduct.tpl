@@ -33,7 +33,7 @@ modifyProduct.tpl: used for modifying a product
             <tr>
                 <td>Category:</td>
                 <td>
-                    {$category}
+                    {$category|escape:'html'}
                 </td>
             </tr>
             <tr>
@@ -46,8 +46,8 @@ modifyProduct.tpl: used for modifying a product
             <tr>
                 <td>Description:</td>
                 <td>
-                    <textarea name="description" rows="10" cols="50"
-                              value="{$description|escape:'html'}">
+                    <textarea class="form-control" name="description" rows="10">
+                        {$description|escape:'html'}
                     </textarea>
                 </td>
             </tr>

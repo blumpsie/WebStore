@@ -17,15 +17,15 @@ Author: Mark Erickson
 
 {block name="content"}
     <h2>My Orders</h2>
-    <table class="table table-condensed">
+    <table class="table-condensed">
         {foreach $userOrders as $order}
             <tr>
                 <td>
                     <a href="showOrder.php?order_id={$order->id}">
-                    Order #{$order->id}
+                    Order #{$order->id|escape:'html'}:
                     </a>
                 </td>
-                <td>Time Placed:{$order->created_at}</td>
+                <td><strong>Time Placed:</strong>   {$order->created_at}</td>
             </tr>
         {/foreach}
     </table>

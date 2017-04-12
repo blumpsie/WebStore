@@ -17,7 +17,7 @@ Author: Mark Erickson
 
 {block name="content"}
     <h2>All Orders</h2>
-    <table class="table table-condensed">
+    <table class="table-condensed">
         {foreach $orders as $order}
             <tr>
                 <td>

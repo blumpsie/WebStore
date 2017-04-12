@@ -21,27 +21,24 @@
 
 <div class="top">
     <h2>My Cart</h2>
-    {foreach $session->cart as $key => $value}
-        <br />
-        {$key}  => {$value}
-    {/foreach}
 </div>
     
     <table class="table table-hover table-condensed">
         <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Per-Product Subtotal</th>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Per-Product Subtotal</td>
         </tr>
-        <tr>
-            {foreach $cart_info as $key => $value}
-                <td><a href="productSelect.php?product_id={$key}">{$value['name']}</a></td> 
-                <td>${number_format($value['price'], 2, ".","")}</td>
-                <td>{$value['quantity']}</td>
-                <td>${number_format($value['subtotal'], 2, ".", "")}</td>
-            {/foreach}
-        </tr>
+        
+        {foreach $cart_info as $key => $value}
+         <tr>
+            <td><a href="productSelect.php?product_id={$key}">{$value['name']}</a></td> 
+            <td>${number_format($value['price'], 2, ".","")}</td>
+            <td>{$value['quantity']}</td>
+            <td>${number_format($value['subtotal'], 2, ".", "")}</td>
+         </tr>
+        {/foreach}
         <tr>
             <td>Total:</td>
             <td></td>

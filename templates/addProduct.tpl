@@ -44,7 +44,7 @@ addProduct.tpl: Form for adding a product
             <tr>
                 <td>Description:</td>
                 <td>
-                    <textarea name="description" rows='10' cols='50'
+                    <textarea class="form-control" name="description" rows="10"
                               value="{$description|escape:'html'}">
                     </textarea>
                 </td>

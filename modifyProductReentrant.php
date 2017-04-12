@@ -27,25 +27,18 @@ if (!is_null($cancel))
 $product = R::load('product', $product_id);
 
 $name = filter_input(INPUT_POST, 'name');
-$category = filter_input(INPUT_POST, 'category');
 $price = filter_input(INPUT_POST, 'price');
 $description = filter_input(INPUT_POST, 'description');
 $photo = filter_input(INPUT_POST, 'photo');
 
-// Get the categories and place them in an array
-$categoryRecords = R::findAll('category', "order by name");
-$categories[0] = "-- SELECT --";
-foreach ($categoryRecords as $category)
-{
-    $categories[$category->id] = $category->name;
-}
+$category = R::load('category', $product->category_id);
 
 // Get all the photos and place them in an array
 $photoRecords = R::findAll('photo', "order by name");
 $photos[0] = "-- NO IMAGE --";
-foreach ($photoRecords as $photo)
+foreach ($photoRecords as $photoA)
 {
-    $photos[$photo->id] = $photo->name;
+    $photos[$photoA->id] = $photoA->name;
 }
 
 try
@@ -66,6 +59,7 @@ try
         throw new Exception("Product with that name already exists");
     }
     
+    // Test for the price of the product
     $trim_price = trim($price);
     
     // Test for price
@@ -74,8 +68,19 @@ try
         throw new Exception("The price must be a non-negative number");
     }
     
+    // Test to see if there are any orders with the product in it
+    $productSelectionRecords = R::findAll('selection', "product_id=?",[$product->id]);
+    
+    if (!is_null($productSelectionRecords))
+    {
+        foreach ($productSelectionRecords as $selection)
+        {
+            $orderToRemove[] = $selection->order_id;
+        }
+        throw new Exception("You must remove order(s): ");
+    }
     $product->name = $trim_name;
-    $product->category_id = $category;
+    $product->category_id = $category->id;
     $product->price = $trim_price;
     $product->description = $description;
     $product->photo_id = $photo;
@@ -91,13 +96,12 @@ try
 
 $data = [
     'name' => $name,
-    'category' => $category,
+    'category' => $category->name,
     'price' => $price,
     'description' => $description,
     'photo' => $photo,
     'product_id' => $product_id,
     
-    'categories' => $categories,
     'photos' => $photos,
     
     'message' => $message,

@@ -9,28 +9,26 @@ require_once "include/db.php";
 // Get the data
 $product_id = filter_input(INPUT_GET, 'product_id');
 $quantity = filter_input(INPUT_GET, 'quantity');
-$product = R::load('product', $product_id);
-
+//$session->cart = filter_input(INPUT_POST, 'cart');
+/*
 if (!isset($session->cart)) {  // or, is_null($session->cart)
   $session->cart = [];
 }
-
+*/
+//if (!is_null($toCart))
 // process $session->cart, storing information into $cart_data
 
-$session->cart = [
-    $product_id => $quantity,
-];
+$session->cart[$product_id] = $quantity;
 
 //we might generate this cart info to send to the view script
 foreach ($session->cart as $key => $value)
 {
-    $cart_info = [
-        $key => [ 
+    $product = R::load('product', $key);
+    $cart_info[$key]= [ 
             'name' => $product->name, 
             'price' => $product->price, 
-            'quantity' => $quantity,
+            'quantity' => $value,
             'subtotal' => $product->price * $quantity,
-            ],
     ];
 }
 
@@ -40,6 +38,7 @@ foreach ($cart_info as $key => $value)
 {
     $total += $value['subtotal'];
 }
+
 $data = [
     'cart_info' => $cart_info,
     'total' => $total,

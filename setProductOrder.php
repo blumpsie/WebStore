@@ -15,8 +15,12 @@ $session->product_order = $field;
 $order = $session->product_order;
 
 // show all the products using which order the user has selected
-$products = R::findAll('product', "order by $order");
+$products = R::findAll('product', "where category_id=$session->filterCategory_id order by $order");
 
+if($session->filterCategory_id == 0)
+{
+    $products = R::findAll('product', "order by $session->product_order");
+}
 // get all the categories
 $categoryRecords = R::findAll('category', "order by name");
 

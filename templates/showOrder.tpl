@@ -76,5 +76,8 @@ Author: Mark Erickson
                    value='{session_get_flash var='confirm'}' />
         </form>
     </div>
+    <h4 id='message'>
+         {session_get_flash var='message'}    
+    </h4>
     {/if}
 {/block}

@@ -15,10 +15,6 @@
 
 {block name="content"}
   <h2>{$product->name|escape:'html'}</h2>
-  {foreach $session->cart as $key => $value}
-        <br />
-        {$key}  => {$value}
-    {/foreach}
 
   <p>
     Product id: {$product->id}

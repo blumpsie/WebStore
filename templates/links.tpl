@@ -1,5 +1,3 @@
-
-
 {if $session->login and !$session->login->is_admin}
     <li><a href="cart.php">Cart</a></li>
     <li><a href="myOrders.php">My Orders</a></li>
