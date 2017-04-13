@@ -1,5 +1,6 @@
 {*
 addProduct.tpl: Form for adding a product
+Author: Mark Erickson
 *}
 {extends file="layout.tpl"}
 

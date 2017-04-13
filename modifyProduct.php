@@ -26,28 +26,26 @@ foreach ($photoRecords as $photo)
 {
     $photos[$photo->id] = $photo->name;
 }
-/*
-try
-{
-// Test to see if there are any orders with the product in it
-$productSelectionRecords = R::findAll('selection', "product_id=?",[$product_id]);
+$productSelectionRecords = R::findAll('selection', "product_id=?", [$product->id]);
+$count = 0;
 
-echo $productSelectionRecords;
-if (!is_null($productSelectionRecords))
+if (($productSelectionRecords) != null)
 {
     foreach ($productSelectionRecords as $selection)
     {
-        $orderToRemove[] = $selection->order_id;
+        $ordersToRemove .= (String)$selection->order_id;
+        if($count < count($productSelectionRecords)-1)
+        {
+            $ordersToRemove .= ", ";
+        }
+        $count++;
     }
-        throw new Exception("You must remove order(s): ");
-    }
-} catch (Exception $ex)
-{
-    $message = $ex->getMessage();
+    
+    $session->message = "You must remove order(s): $ordersToRemove";
     header("location: productSelect.php?product_id=$product_id");
     exit();
 }
-*/
+
 $data = [
     'name' => $product->name,
     'price' => $product->price,
@@ -56,7 +54,6 @@ $data = [
     'photo' => $product->photo_id,
     'product_id' => $product_id,
     'photos' => $photos,
-    //'message' => $message,
 ];
 $smarty->assign($data);
 $smarty->display("modifyProduct.tpl");

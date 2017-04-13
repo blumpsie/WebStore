@@ -1,5 +1,6 @@
 {*
 Form for adding a category
+Author: Mark Erickson
 *}
 {extends file="layout.tpl"}
 

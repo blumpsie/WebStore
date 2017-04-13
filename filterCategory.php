@@ -2,6 +2,9 @@
 require_once "include/smarty.php";
 require_once "include/db.php";
 
+/*
+ * Author: MArk Erickson
+ */
 $category = filter_input(INPUT_GET, "category");
 
 $session->filterCategory_id = $category;

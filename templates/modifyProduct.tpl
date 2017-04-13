@@ -1,5 +1,6 @@
 {*
 modifyProduct.tpl: used for modifying a product
+Author: Mark Erickson
 *}
 
 {extends file="layout.tpl"}
