@@ -68,17 +68,6 @@ try
         throw new Exception("The price must be a non-negative number");
     }
     
-    // Test to see if there are any orders with the product in it
-    $productSelectionRecords = R::findAll('selection', "product_id=?",[$product->id]);
-    
-    if (!is_null($productSelectionRecords))
-    {
-        foreach ($productSelectionRecords as $selection)
-        {
-            $orderToRemove[] = $selection->order_id;
-        }
-        throw new Exception("You must remove order(s): ");
-    }
     $product->name = $trim_name;
     $product->category_id = $category->id;
     $product->price = $trim_price;

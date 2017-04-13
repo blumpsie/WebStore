@@ -30,4 +30,7 @@ Author: Mark Erickson
             </tr>
         {/foreach}
     </table>
+    <h4 id='message'>
+         {session_get_flash var='message'}    
+    </h4>
 {/block}

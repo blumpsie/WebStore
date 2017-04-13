@@ -14,8 +14,12 @@ if (!isset($session->product_order))
 {
     $session->product_order = 'name';
 }
+if (!isset($session->filterCategory_id))
+{
+    $session->filterCategory_id = 0;
+}
 
-if (!isset($session->filterCategory_id) || $session->filterCategory_id == 0)
+if ($session->filterCategory_id == 0)
 {
     $products = R::findAll('product', "order by $session->product_order");
 }

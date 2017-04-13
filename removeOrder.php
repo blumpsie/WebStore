@@ -40,4 +40,5 @@ foreach ($selections as $selection)
 
 // Remove the order from the order table
 R::trash($order);
+$session->message = "Order #$order_id was successfully removed.";
 header("location: allOrders.php");

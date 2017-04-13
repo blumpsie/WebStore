@@ -22,7 +22,9 @@
 <div class="top">
     <h2>My Cart</h2>
 </div>
-    
+    {if !$hasItems}
+            <h1><strong>EMPTY CART!!!</strong></h1>
+    {else}
     <table class="table table-hover table-condensed">
         <tr>
             <td>Name</td>
@@ -53,6 +55,7 @@
                 </form>
             </td>
         </tr>
+        {/if}
         {/if}
     </table>
 

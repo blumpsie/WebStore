@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-11 16:29:13
+/* Smarty version 3.1.30, created on 2017-04-13 08:55:15
   from "C:\Users\Blumpsie\Documents\User Interfaces - CSC 417\WebStore\templates\cart.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58ed3c998218b5_75109433',
+  'unifunc' => 'content_58ef7533e6c269_40577290',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c0a5ed4b7fcecfbc8fce93b8ab9f037464333d1e' => 
     array (
       0 => 'C:\\Users\\Blumpsie\\Documents\\User Interfaces - CSC 417\\WebStore\\templates\\cart.tpl',
-      1 => 1491942545,
+      1 => 1492088113,
       2 => 'file',
     ),
   ),
@@ -21,26 +21,26 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:layout.tpl' => 1,
   ),
 ),false)) {
-function content_58ed3c998218b5_75109433 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58ef7533e6c269_40577290 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_150623298258ed3c9979d9b5_04998668', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_167099585058ef7533dd66c2_67103809', "localstyle");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10785812458ed3c9981e786_11945293', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11387411258ef7533e68979_54189579', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:layout.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block "localstyle"} */
-class Block_150623298258ed3c9979d9b5_04998668 extends Smarty_Internal_Block
+class Block_167099585058ef7533dd66c2_67103809 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -64,7 +64,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_10785812458ed3c9981e786_11945293 extends Smarty_Internal_Block
+class Block_11387411258ef7533e68979_54189579 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -73,7 +73,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 <div class="top">
     <h2>My Cart</h2>
 </div>
-    
+    <?php if (!$_smarty_tpl->tpl_vars['hasItems']->value) {?>
+            <h1><strong>EMPTY CART!!!</strong></h1>
+    <?php } else { ?>
     <table class="table table-hover table-condensed">
         <tr>
             <td>Name</td>
@@ -119,6 +121,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                 </form>
             </td>
         </tr>
+        <?php }?>
         <?php }?>
     </table>
 
