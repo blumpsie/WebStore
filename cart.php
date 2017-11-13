@@ -9,7 +9,7 @@ require_once "include/db.php";
 // Get the data
 $product_id = filter_input(INPUT_GET, 'product_id');
 $quantity = filter_input(INPUT_GET, 'quantity');
-
+$session->quantity = $quantity;
 $hasItems = true;
 if (!isset($session->cart)) {  // or, is_null($session->cart)
   $session->cart = [];

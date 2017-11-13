@@ -71,13 +71,13 @@ try
     $trim_price = trim($price);
     
     // Test for price
-    if (!preg_match("/(?:\d*\.)?\d+/", $trim_price))
+    if (!preg_match("/\d+\.\d{0,2}/", $trim_price))
     {
-        throw new Exception("The price must be a non-negative number");
+        throw new Exception("The price must be either an integer or a decimal with 0-2 places");
     }
     
     // Test for category
-    if (is_null($category))
+    if ($category == 0)
     {
         throw new Exception("Must select a category for the product");
     }

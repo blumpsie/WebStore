@@ -4,7 +4,15 @@ require_once "include/db.php";
 
 $product_id = filter_input(INPUT_GET, 'product_id');
 $product = R::load('product', $product_id);
-$quantity = 0;
+$quantity = filter_input(INPUT_GET, 'quantity');
+
+
+if(!isset($session->quantity))
+{
+    $session->quantity = 0;
+}
+
+$quantity = $session->quantity;
 
 // must enter this page with a valid $product_id
 if ($product->id == 0) {
